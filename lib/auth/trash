@@ -1,0 +1,685 @@
+import 'package:ClencleR/auth/forgot.dart';
+import 'package:ClencleR/auth/signup.dart';
+import 'package:flutter/material.dart';
+import 'package:ClencleR/screen/dashboard.dart';
+
+import '../Theme.dart';
+
+class SignIn extends StatefulWidget {
+  const SignIn({Key? key}) : super(key: key);
+
+  @override
+  State<SignIn> createState() => _SignInState();
+}
+
+class _SignInState extends State<SignIn> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Login", style: TextStyle(color: Colors.black),),
+        backgroundColor: AppColors.birumuda,
+        centerTitle: true,
+        iconTheme: IconThemeData(color: Colors.black),
+        elevation: 0,
+      ),
+
+      body: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 25.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Center(
+                  child: Image(
+                    image: AssetImage("assets/Images/logoo.png"),
+                    height: 150,
+                  ),
+                ),
+                TextFormField(
+                  decoration: InputDecoration(
+                    labelText: "Nomor HP atau Email",
+                    labelStyle: TextStyle(color: AppColors.grey),
+                    hintText: "Masukkan No. HP atau Email ",
+                    prefixIcon: Icon(
+                      Icons.email_outlined,
+                      color: Colors.black,
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(width: 1, color: Colors.black),
+                      borderRadius: BorderRadius.circular(18),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide:
+                          BorderSide(width: 1, color: AppColors.deeppurple),
+                      borderRadius: BorderRadius.circular(18),
+                    ),
+                    errorBorder: OutlineInputBorder(
+                      borderSide:
+                          const BorderSide(width: 1, color: Colors.redAccent),
+                      borderRadius: BorderRadius.circular(18),
+                    ),
+                    focusedErrorBorder: OutlineInputBorder(
+                      borderSide:
+                          const BorderSide(width: 1, color: Colors.redAccent),
+                      borderRadius: BorderRadius.circular(18),
+                    ),
+                    floatingLabelBehavior: FloatingLabelBehavior.always,
+                  ),
+                  validator: (value) {
+                    if (value == null || value.trim().isEmpty) {
+                      return 'Please enter your email address';
+                    }
+                    // Check if the entered email has the right format
+                    if (!RegExp(r'\S+@\S+\.\S+').hasMatch(value)) {
+                      return 'Please enter a valid email address';
+                    }
+                    // Return null if the entered email is valid
+                    return null;
+                  },
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                TextFormField(
+                  decoration: InputDecoration(
+                    labelText: "Password",
+                    labelStyle: TextStyle(color: AppColors.grey),
+                    hintText: "Masukkan Password",
+                    prefixIcon: Icon(
+                      Icons.lock_open_outlined,
+                      color: Colors.black,
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(width: 1, color: Colors.black),
+                      borderRadius: BorderRadius.circular(18),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide:
+                          BorderSide(width: 1, color: AppColors.deeppurple),
+                      borderRadius: BorderRadius.circular(18),
+                    ),
+                    errorBorder: OutlineInputBorder(
+                      borderSide:
+                          const BorderSide(width: 1, color: Colors.redAccent),
+                      borderRadius: BorderRadius.circular(18),
+                    ),
+                    focusedErrorBorder: OutlineInputBorder(
+                      borderSide:
+                          const BorderSide(width: 1, color: Colors.redAccent),
+                      borderRadius: BorderRadius.circular(18),
+                    ),
+                    floatingLabelBehavior: FloatingLabelBehavior.always,
+                  ),
+                  validator: (value) {
+                    if (value == null || value.trim().isEmpty) {
+                      return 'Please enter your email address';
+                    }
+                    // Check if the entered email has the right format
+                    if (!RegExp(r'\S+@\S+\.\S+').hasMatch(value)) {
+                      return 'Please enter a valid email address';
+                    }
+                    // Return null if the entered email is valid
+                    return null;
+                  },
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => ForgotScreen()));
+                        },
+                        child: Text(
+                          "Lupa Kata Sandi",
+                          style: TextStyle(color: Colors.black,
+                        ),
+                      ),
+                )],
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                SizedBox(
+                  width: 500,
+                  height: 50,
+                  child: ElevatedButton(                    
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => DashBoard()));
+                    },
+                    child: Text("Login",
+                    style: TextStyle(
+                      color: Colors.black
+                    ),
+                    ),
+                    style: ElevatedButton.styleFrom(
+                      primary: AppColors.birumuda,
+                      shape: const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(
+                        Radius.circular(50),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Center(
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "Belum Punya Akun? ",
+                        style: TextStyle(color: Colors.grey),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => SignUp()));
+                        },
+                        child: Text(
+                          " Sign Up",
+                          style: TextStyle(color: AppColors.deeppurple),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Row(children: <Widget>[
+                  Expanded(
+                      child: Divider(
+                    indent: 40,
+                    endIndent: 20,
+                  )),
+                  SizedBox(
+                    width: 20,
+                  ),
+                  Text("Or"),
+                  SizedBox(
+                    width: 20,
+                  ),
+                  Expanded(
+                      child: Divider(
+                    indent: 20,
+                    endIndent: 40,
+                  )),
+                ]),
+                SizedBox(
+                  height: 10,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    OutlinedButton.icon(
+                      label: Text('Google'),
+                      style: OutlinedButton.styleFrom(
+                        primary: Colors.redAccent,
+                        side: BorderSide(
+                            width: 1.0, color: Colors.redAccent.withAlpha(50)),
+                      ),
+                      icon: Icon(Icons.g_mobiledata),
+                      onPressed: () {
+                        print('Pressed');
+                      },
+                    ),
+                    SizedBox(
+                  height: 60,
+                ),
+                  ],
+                )
+              ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+
+import 'package:ClencleR/auth/otp.dart';
+import 'package:ClencleR/auth/signin.dart';
+import 'package:ClencleR/screen/dashboard.dart';
+import 'package:ClencleR/theme.dart';
+import 'package:flutter/material.dart';
+
+
+class SignUp extends StatefulWidget {
+  const SignUp({Key? key}) : super(key: key);
+
+  @override
+  State<SignUp> createState() => _SignUpState();
+}
+
+class _SignUpState extends State<SignUp> {
+  bool agree = false;
+
+  // This function is triggered when the button is clicked
+  void _doSomething() {
+    Navigator.push(context, MaterialPageRoute(builder: (context)=> OTP_Verification()));
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Daftar", style: TextStyle(color: Colors.black),),
+        backgroundColor: AppColors.birumuda,
+        centerTitle: true,
+        iconTheme: IconThemeData(color: Colors.black),
+        elevation: 0,
+      ),
+      body: Center(
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 25.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(
+                  height: 20,
+                ),
+                TextFormField(
+                  decoration: InputDecoration(
+                    labelText: "Full Name",
+                    labelStyle: TextStyle(color: AppColors.grey),
+                    hintText: "Enter your Full Name",
+                    prefixIcon: Icon(
+                      Icons.person_outline,
+                      color: Colors.black,
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(width: 1, color: Colors.black),
+                      borderRadius: BorderRadius.circular(18),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                          width: 1, color: AppColors.deeppurple),
+                      borderRadius: BorderRadius.circular(18),
+                    ),
+                    errorBorder: OutlineInputBorder(
+                      borderSide:
+                      const BorderSide(width: 1, color: Colors.redAccent),
+                      borderRadius: BorderRadius.circular(18),
+                    ),
+                    focusedErrorBorder: OutlineInputBorder(
+                      borderSide:
+                      const BorderSide(width: 1, color: Colors.redAccent),
+                      borderRadius: BorderRadius.circular(18),
+                    ),
+                    floatingLabelBehavior: FloatingLabelBehavior.always,
+                  ),
+                  validator: (value) {
+                    if (value == null || value
+                        .trim()
+                        .isEmpty) {
+                      return 'Please enter your email address';
+                    }
+                    // Check if the entered email has the right format
+                    if (!RegExp(r'\S+@\S+\.\S+').hasMatch(value)) {
+                      return 'Please enter a valid email address';
+                    }
+                    // Return null if the entered email is valid
+                    return null;
+                  },
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                TextFormField(
+                  decoration: InputDecoration(
+                    labelText: "Email",
+                    labelStyle: TextStyle(color: AppColors.grey),
+                    hintText: "Enter your Email",
+                    prefixIcon: Icon(
+                      Icons.email_outlined,
+                      color: Colors.black,
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(width: 1, color: Colors.black),
+                      borderRadius: BorderRadius.circular(18),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                          width: 1, color: AppColors.deeppurple),
+                      borderRadius: BorderRadius.circular(18),
+                    ),
+                    errorBorder: OutlineInputBorder(
+                      borderSide:
+                      const BorderSide(width: 1, color: Colors.redAccent),
+                      borderRadius: BorderRadius.circular(18),
+                    ),
+                    focusedErrorBorder: OutlineInputBorder(
+                      borderSide:
+                      const BorderSide(width: 1, color: Colors.redAccent),
+                      borderRadius: BorderRadius.circular(18),
+                    ),
+                    floatingLabelBehavior: FloatingLabelBehavior.always,
+                  ),
+                  validator: (value) {
+                    if (value == null || value
+                        .trim()
+                        .isEmpty) {
+                      return 'Please enter your email address';
+                    }
+                    // Check if the entered email has the right format
+                    if (!RegExp(r'\S+@\S+\.\S+').hasMatch(value)) {
+                      return 'Please enter a valid email address';
+                    }
+                    // Return null if the entered email is valid
+                    return null;
+                  },
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                TextFormField(
+                  decoration: InputDecoration(
+                    labelText: "Password",
+                    labelStyle: TextStyle(color: AppColors.grey),
+                    hintText: "Enter your Password",
+                    prefixIcon: Icon(
+                      Icons.lock_open_outlined,
+                      color: Colors.black,
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(width: 1, color: Colors.black),
+                      borderRadius: BorderRadius.circular(18),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                          width: 1, color: AppColors.deeppurple),
+                      borderRadius: BorderRadius.circular(18),
+                    ),
+                    errorBorder: OutlineInputBorder(
+                      borderSide:
+                      const BorderSide(width: 1, color: Colors.redAccent),
+                      borderRadius: BorderRadius.circular(18),
+                    ),
+                    focusedErrorBorder: OutlineInputBorder(
+                      borderSide:
+                      const BorderSide(width: 1, color: Colors.redAccent),
+                      borderRadius: BorderRadius.circular(18),
+                    ),
+                    floatingLabelBehavior: FloatingLabelBehavior.always,
+                  ),
+                  validator: (value) {
+                    if (value == null || value
+                        .trim()
+                        .isEmpty) {
+                      return 'Please enter your email address';
+                    }
+                    // Check if the entered email has the right format
+                    if (!RegExp(r'\S+@\S+\.\S+').hasMatch(value)) {
+                      return 'Please enter a valid email address';
+                    }
+                    // Return null if the entered email is valid
+                    return null;
+                  },
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                TextFormField(
+                  decoration: InputDecoration(
+                    labelText: "Confirm Password",
+                    labelStyle: TextStyle(color: AppColors.grey),
+                    hintText: "Re-enter Your password",
+                    prefixIcon: Icon(
+                      Icons.lock_open_outlined,
+                      color: Colors.black,
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(width: 1, color: Colors.black),
+                      borderRadius: BorderRadius.circular(18),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                          width: 1, color: AppColors.deeppurple),
+                      borderRadius: BorderRadius.circular(18),
+                    ),
+                    errorBorder: OutlineInputBorder(
+                      borderSide:
+                      const BorderSide(width: 1, color: Colors.redAccent),
+                      borderRadius: BorderRadius.circular(18),
+                    ),
+                    focusedErrorBorder: OutlineInputBorder(
+                      borderSide:
+                      const BorderSide(width: 1, color: Colors.redAccent),
+                      borderRadius: BorderRadius.circular(18),
+                    ),
+                    floatingLabelBehavior: FloatingLabelBehavior.always,
+                  ),
+                  validator: (value) {
+                    if (value == null || value
+                        .trim()
+                        .isEmpty) {
+                      return 'Please enter your email address';
+                    }
+                    // Check if the entered email has the right format
+                    if (!RegExp(r'\S+@\S+\.\S+').hasMatch(value)) {
+                      return 'Please enter a valid email address';
+                    }
+                    // Return null if the entered email is valid
+                    return null;
+                  },
+                ),
+
+                SizedBox(
+                  height: 20,
+                ),
+                TextFormField(
+                  decoration: InputDecoration(
+                    labelText: "Phone Number",
+                    labelStyle: TextStyle(color: AppColors.grey),
+                    hintText: "Enter Your Phone Number",
+                    prefixIcon: Icon(
+                      Icons.phone,
+                      color: Colors.black,
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(width: 1, color: Colors.black),
+                      borderRadius: BorderRadius.circular(18),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                          width: 1, color: AppColors.deeppurple),
+                      borderRadius: BorderRadius.circular(18),
+                    ),
+                    errorBorder: OutlineInputBorder(
+                      borderSide:
+                      const BorderSide(width: 1, color: Colors.redAccent),
+                      borderRadius: BorderRadius.circular(18),
+                    ),
+                    focusedErrorBorder: OutlineInputBorder(
+                      borderSide:
+                      const BorderSide(width: 1, color: Colors.redAccent),
+                      borderRadius: BorderRadius.circular(18),
+                    ),
+                    floatingLabelBehavior: FloatingLabelBehavior.always,
+                  ),
+                  // validator: (value) {
+                  //   if (value == null || value
+                  //       .trim()
+                  //       .isEmpty) {
+                  //     return 'Please enter your email address';
+                  //   }
+                  //   // Check if the entered email has the right format
+                  //   if (!RegExp(r'\S+@\S+\.\S+').hasMatch(value)) {
+                  //     return 'Please enter a valid email address';
+                  //   }
+                  //   // Return null if the entered email is valid
+                  //   return null;
+                  // },
+                ),
+              SizedBox(
+                height: 20,
+              ),
+              TextFormField(
+                  decoration: InputDecoration(
+                    labelText: "Address",
+                    labelStyle: TextStyle(color: AppColors.grey),
+                    hintText: "Enter Your Address",
+                    prefixIcon: Icon(
+                      Icons.home,
+                      color: Colors.black,
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(width: 1, color: Colors.black),
+                      borderRadius: BorderRadius.circular(18),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                          width: 1, color: AppColors.deeppurple),
+                      borderRadius: BorderRadius.circular(18),
+                    ),
+                    errorBorder: OutlineInputBorder(
+                      borderSide:
+                      const BorderSide(width: 1, color: Colors.redAccent),
+                      borderRadius: BorderRadius.circular(18),
+                    ),
+                    focusedErrorBorder: OutlineInputBorder(
+                      borderSide:
+                      const BorderSide(width: 1, color: Colors.redAccent),
+                      borderRadius: BorderRadius.circular(18),
+                    ),
+                    floatingLabelBehavior: FloatingLabelBehavior.always,
+                  ),
+                  // validator: (value) {
+                  //   if (value == null || value
+                  //       .trim()
+                  //       .isEmpty) {
+                  //     return 'Please enter your email address';
+                  //   }
+                  //   // Check if the entered email has the right format
+                  //   if (!RegExp(r'\S+@\S+\.\S+').hasMatch(value)) {
+                  //     return 'Please enter a valid email address';
+                  //   }
+                  //   // Return null if the entered email is valid
+                  //   return null;
+                  // },
+                ),
+
+                SizedBox(
+                height: 20,
+              ),
+              TextFormField(
+                  decoration: InputDecoration(
+                    labelText: "Location",
+                    labelStyle: TextStyle(color: AppColors.grey),
+                    hintText: "Enter Your Location",
+                    prefixIcon: Icon(
+                      Icons.maps_home_work,
+                      color: Colors.black,
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(width: 1, color: Colors.black),
+                      borderRadius: BorderRadius.circular(18),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                          width: 1, color: AppColors.deeppurple),
+                      borderRadius: BorderRadius.circular(18),
+                    ),
+                    errorBorder: OutlineInputBorder(
+                      borderSide:
+                      const BorderSide(width: 1, color: Colors.redAccent),
+                      borderRadius: BorderRadius.circular(18),
+                    ),
+                    focusedErrorBorder: OutlineInputBorder(
+                      borderSide:
+                      const BorderSide(width: 1, color: Colors.redAccent),
+                      borderRadius: BorderRadius.circular(18),
+                    ),
+                    floatingLabelBehavior: FloatingLabelBehavior.always,
+                  ),
+                  // validator: (value) {
+                  //   if (value == null || value
+                  //       .trim()
+                  //       .isEmpty) {
+                  //     return 'Please enter your email address';
+                  //   }
+                  //   // Check if the entered email has the right format
+                  //   if (!RegExp(r'\S+@\S+\.\S+').hasMatch(value)) {
+                  //     return 'Please enter a valid email address';
+                  //   }
+                  //   // Return null if the entered email is valid
+                  //   return null;
+                  // },
+                ),
+                SizedBox(
+                height: 20,
+              ),
+      
+              SizedBox(
+                width: 500,
+                height: 50,
+                child: ElevatedButton( onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => DashBoard()));
+                    },
+                  child: Text("Daftar Mitra",
+                   style: TextStyle(
+                      color: Colors.black
+                    ),
+                    ),
+                  style: ElevatedButton.styleFrom(
+                    primary: AppColors.birumuda,
+                    shape: const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(
+                        Radius.circular(50),
+                        ),
+                      ),
+                  ),),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Center(
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Sudah Punya Akun? ",
+                      style: TextStyle(color: Colors.grey),),
+                    GestureDetector(
+                      onTap: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => SignIn()));
+                      },
+                      child: Text(
+                        "Login",
+                        style: TextStyle(color: AppColors.deeppurple),),
+                    ),
+                  ],       
+                ), 
+              ),
+              SizedBox(
+                height: 60,
+              ),
+              
+              ],
+              
+            ),
+          ),
+        ),
+        
+      ),
+    );
+  }
+}
