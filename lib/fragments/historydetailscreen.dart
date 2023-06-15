@@ -1,12 +1,10 @@
-import 'package:ClencleR/Theme.dart';
-import 'package:ClencleR/fragments/homescreen.dart';
-import 'package:ClencleR/screen/dashboard.dart';
+import 'package:ClencleR/theme.dart';
 import 'package:flutter/material.dart';
 
-class OrderDetailsScreen extends StatelessWidget {
-  final Order order;
+class HistoryDetailScreen extends StatelessWidget {
+  final History history;
 
-  const OrderDetailsScreen({super.key, required this.order});
+  const HistoryDetailScreen({super.key, required this.history});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +18,7 @@ class OrderDetailsScreen extends StatelessWidget {
             bottomRight: Radius.circular(30),
           ),
         ),
-        title: Text(order.title,
+        title: Text(history.title,
             style: const TextStyle(color: Colors.black, fontSize: 18)),
       ),
       body: SingleChildScrollView(
@@ -34,7 +32,7 @@ class OrderDetailsScreen extends StatelessWidget {
                 children: [
                   SizedBox(width: 8),
                   Text(
-                    "Keterangan Order",
+                    "Keterangan history",
                     style: TextStyle(
                       color: Colors.black,
                       fontSize: 18,
@@ -66,7 +64,7 @@ class OrderDetailsScreen extends StatelessWidget {
                       children: [
                         Expanded(
                           child: Text(
-                            order.duration,
+                            history.duration,
                             style: const TextStyle(
                                 fontSize: 14, fontWeight: FontWeight.normal),
                           ),
@@ -96,7 +94,7 @@ class OrderDetailsScreen extends StatelessWidget {
                       children: [
                         Expanded(
                           child: Text(
-                            order.location,
+                            history.location,
                             style: const TextStyle(
                                 fontSize: 14, fontWeight: FontWeight.normal),
                           ),
@@ -125,7 +123,7 @@ class OrderDetailsScreen extends StatelessWidget {
                       children: [
                         Expanded(
                           child: Text(
-                            order.biaya,
+                            history.biaya,
                             style: const TextStyle(
                                 fontSize: 14, fontWeight: FontWeight.normal),
                           ),
@@ -158,7 +156,8 @@ class OrderDetailsScreen extends StatelessWidget {
                       children: [
                         Expanded(
                           child: Text(
-                            '-> ${order.kategori1}' ' (${order.biaya1} x 3)',
+                            '-> ${history.kategori1}'
+                            ' (${history.biaya1} x 3)',
                             style: const TextStyle(
                                 fontSize: 14, fontWeight: FontWeight.normal),
                           ),
@@ -177,7 +176,8 @@ class OrderDetailsScreen extends StatelessWidget {
                       children: [
                         Expanded(
                           child: Text(
-                            '-> ${order.kategori2}' ' (${order.biaya2} x 2)',
+                            '-> ${history.kategori2}'
+                            ' (${history.biaya2} x 2)',
                             style: const TextStyle(
                                 fontSize: 14, fontWeight: FontWeight.normal),
                           ),
@@ -196,7 +196,7 @@ class OrderDetailsScreen extends StatelessWidget {
                       children: [
                         Expanded(
                           child: Text(
-                            '-> ${order.kategori3}' ' (${order.biaya3})',
+                            '-> ${history.kategori3}' ' (${history.biaya3})',
                             style: const TextStyle(
                                 fontSize: 14, fontWeight: FontWeight.normal),
                           ),
@@ -215,7 +215,7 @@ class OrderDetailsScreen extends StatelessWidget {
                       children: [
                         Expanded(
                           child: Text(
-                            '-> ${order.kategori4}' ' (${order.biaya4})',
+                            '-> ${history.kategori4}' ' (${history.biaya4})',
                             style: const TextStyle(
                                 fontSize: 14, fontWeight: FontWeight.normal),
                           ),
@@ -234,7 +234,7 @@ class OrderDetailsScreen extends StatelessWidget {
                       children: [
                         Expanded(
                           child: Text(
-                            '-> ${order.kategori5}' ' (${order.biaya5})',
+                            '-> ${history.kategori5}' ' (${history.biaya5})',
                             style: const TextStyle(
                                 fontSize: 14, fontWeight: FontWeight.normal),
                           ),
@@ -253,7 +253,7 @@ class OrderDetailsScreen extends StatelessWidget {
                       children: [
                         Expanded(
                           child: Text(
-                            '-> ${order.kategori6}' ' (${order.biaya6})',
+                            '-> ${history.kategori6}' ' (${history.biaya6})',
                             style: const TextStyle(
                                 fontSize: 14, fontWeight: FontWeight.normal),
                           ),
@@ -272,7 +272,7 @@ class OrderDetailsScreen extends StatelessWidget {
                       children: [
                         Expanded(
                           child: Text(
-                            '-> ${order.kategori7}' ' (${order.biaya7})',
+                            '-> ${history.kategori7}' ' (${history.biaya7})',
                             style: const TextStyle(
                                 fontSize: 14, fontWeight: FontWeight.normal),
                           ),
@@ -283,34 +283,54 @@ class OrderDetailsScreen extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 30),
-              SizedBox(
-                width: 500,
-                height: 50,
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const DashBoard()));
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: AppColors.birumuda,
-                    shape: const RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(50),
-                      ),
-                    ),
-                  ),
-                  child: const Text(
-                    "Ambil Order",
-                    style: TextStyle(color: Colors.black),
-                  ),
-                ),
-              ),
             ],
           ),
         ),
       ),
     );
   }
+}
+
+class History {
+  final String title;
+  final String duration;
+  final String location;
+  final String kategori;
+  final String biaya;
+  final String kategori1;
+  final String biaya1;
+  final String kategori2;
+  final String biaya2;
+  final String kategori3;
+  final String biaya3;
+  final String kategori4;
+  final String biaya4;
+  final String kategori5;
+  final String biaya5;
+  final String kategori6;
+  final String biaya6;
+  final String kategori7;
+  final String biaya7;
+
+  History({
+    required this.title,
+    required this.duration,
+    required this.location,
+    required this.kategori,
+    required this.biaya,
+    required this.kategori1,
+    required this.biaya1,
+    required this.kategori2,
+    required this.biaya2,
+    required this.kategori3,
+    required this.biaya3,
+    required this.kategori4,
+    required this.biaya4,
+    required this.kategori5,
+    required this.biaya5,
+    required this.kategori6,
+    required this.biaya6,
+    required this.kategori7,
+    required this.biaya7,
+  });
 }

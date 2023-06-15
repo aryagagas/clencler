@@ -106,7 +106,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text(
+                          const Text(
                             "Specific Area Cleaning",
                             style: TextStyle(
                               color: Colors.black,
@@ -125,20 +125,20 @@ class _HomeScreenState extends State<HomeScreen> {
                         indent: 5,
                         endIndent: 150,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 14,
                       ),
-                      Row(
+                      const Row(
                         children: [
                           Icon(Icons.lock_clock),
                           SizedBox(width: 10),
                           Text("10:00 WIB"),
                         ],
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
-                      Row(
+                      const Row(
                         children: [
                           Icon(Icons.location_on),
                           SizedBox(width: 10),
@@ -240,26 +240,26 @@ class Order {
   final String kategori7;
 
   Order({
-    required this.title, 
-    required this.duration, 
-    required this.location, 
-    required this.biaya, 
-    required this.biaya1, 
-    required this.biaya2, 
-    required this.biaya3, 
-    required this.biaya4, 
-    required this.biaya5, 
-    required this.biaya6, 
-    required this.biaya7, 
-    required this.kategori, 
-    required this.kategori1, 
-    required this.kategori2, 
-    required this.kategori3, 
-    required this.kategori4, 
-    required this.kategori5, 
-    required this.kategori6, 
+    required this.title,
+    required this.duration,
+    required this.location,
+    required this.biaya,
+    required this.biaya1,
+    required this.biaya2,
+    required this.biaya3,
+    required this.biaya4,
+    required this.biaya5,
+    required this.biaya6,
+    required this.biaya7,
+    required this.kategori,
+    required this.kategori1,
+    required this.kategori2,
+    required this.kategori3,
+    required this.kategori4,
+    required this.kategori5,
+    required this.kategori6,
     required this.kategori7,
-    });
+  });
 }
 
 List<Order> orders = [
@@ -350,6 +350,7 @@ class OrderWidget extends StatelessWidget {
   final String kategori7;
 
   const OrderWidget({
+    super.key,
     required this.title,
     required this.duration,
     required this.location,
@@ -409,23 +410,23 @@ class OrderWidget extends StatelessWidget {
               indent: 5,
               endIndent: 150,
             ),
-            SizedBox(
+            const SizedBox(
               height: 14,
             ),
             Row(
               children: [
-                Icon(Icons.lock_clock),
-                SizedBox(width: 10),
+                const Icon(Icons.lock_clock),
+                const SizedBox(width: 10),
                 Text(duration),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Row(
               children: [
-                Icon(Icons.location_on),
-                SizedBox(width: 10),
+                const Icon(Icons.location_on),
+                const SizedBox(width: 10),
                 Text(location),
               ],
             ),

@@ -18,17 +18,17 @@ class _AlertsScreenState extends State<AlertsScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: 35,),
-              Row(
-                children: const [
+              const SizedBox(height: 35,),
+              const Row(
+                children: [
                   Text("Notifications", style:TextStyle(color: AppColors.deeppurple, fontSize: 18, fontWeight: FontWeight.w600),),
                   Spacer(),
                   Text("Clear all", style:TextStyle(color: AppColors.grey, fontSize: 15, fontWeight: FontWeight.w400),),
                 ],
               ),
-              SizedBox(height: 10,),
-              Text("Today", style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16),),
-              SizedBox(height: 10,),
+              const SizedBox(height: 10,),
+              const Text("Today", style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16),),
+              const SizedBox(height: 10,),
               Row(
                 children: [
                   Container(
@@ -38,15 +38,15 @@ class _AlertsScreenState extends State<AlertsScreen> {
                       borderRadius: BorderRadius.circular(14),
                       color: Colors.blue,
                     ),
-                    child: Center(child: Text("KO", style: TextStyle(color: Colors.white, fontSize: 14),)),
+                    child: const Center(child: Text("KO", style: TextStyle(color: Colors.white, fontSize: 14),)),
                   ),
-                  Text("  Kratos Official ", style: TextStyle(fontWeight: FontWeight.w500, fontSize: 14),),
-                  Text("Saved Your Profile", style: TextStyle( fontSize: 14, color: AppColors.grey),),
-                  Spacer(),
-                  Text("2 mins ago", style: TextStyle( fontSize: 13, color: AppColors.grey),),
+                  const Text("  Kratos Official ", style: TextStyle(fontWeight: FontWeight.w500, fontSize: 14),),
+                  const Text("Saved Your Profile", style: TextStyle( fontSize: 14, color: AppColors.grey),),
+                  const Spacer(),
+                  const Text("2 mins ago", style: TextStyle( fontSize: 13, color: AppColors.grey),),
                 ],
               ),
-              Divider(
+              const Divider(
                 color: Colors.grey,
               ),
               Row(
@@ -58,19 +58,19 @@ class _AlertsScreenState extends State<AlertsScreen> {
                       borderRadius: BorderRadius.circular(14),
                       color: Colors.blue,
                     ),
-                    child: Center(child: Text("JG", style: TextStyle(color: Colors.white, fontSize: 14),)),
+                    child: const Center(child: Text("JG", style: TextStyle(color: Colors.white, fontSize: 14),)),
                   ),
-                  Text("  Joe Goldberg ", style: TextStyle(fontWeight: FontWeight.w500, fontSize: 14),),
-                  Text("liked Your Profile", style: TextStyle( fontSize: 14, color: AppColors.grey),),
-                  Spacer(),
-                  Text("2 mins ago", style: TextStyle( fontSize: 13, color: AppColors.grey),),
+                  const Text("  Joe Goldberg ", style: TextStyle(fontWeight: FontWeight.w500, fontSize: 14),),
+                  const Text("liked Your Profile", style: TextStyle( fontSize: 14, color: AppColors.grey),),
+                  const Spacer(),
+                  const Text("2 mins ago", style: TextStyle( fontSize: 13, color: AppColors.grey),),
                 ],
               ),
 
 
-              SizedBox(height: 20,),
-              Text("Yesterday", style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16),),
-              SizedBox(height: 10,),
+              const SizedBox(height: 20,),
+              const Text("Yesterday", style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16),),
+              const SizedBox(height: 10,),
               Row(
                 children: [
                   Container(
@@ -80,15 +80,15 @@ class _AlertsScreenState extends State<AlertsScreen> {
                       borderRadius: BorderRadius.circular(14),
                       color: Colors.blue,
                     ),
-                    child: Center(child: Text("KO", style: TextStyle(color: Colors.white, fontSize: 14),)),
+                    child: const Center(child: Text("KO", style: TextStyle(color: Colors.white, fontSize: 14),)),
                   ),
-                  Text("  Kratos Official ", style: TextStyle(fontWeight: FontWeight.w500, fontSize: 14),),
-                  Text("Saved Your Profile", style: TextStyle( fontSize: 14, color: AppColors.grey),),
-                  Spacer(),
-                  Text("2 mins ago", style: TextStyle( fontSize: 13, color: AppColors.grey),),
+                  const Text("  Kratos Official ", style: TextStyle(fontWeight: FontWeight.w500, fontSize: 14),),
+                  const Text("Saved Your Profile", style: TextStyle( fontSize: 14, color: AppColors.grey),),
+                  const Spacer(),
+                  const Text("2 mins ago", style: TextStyle( fontSize: 13, color: AppColors.grey),),
                 ],
               ),
-              Divider(
+              const Divider(
                 color: Colors.grey,
               ),
               Row(
@@ -100,15 +100,15 @@ class _AlertsScreenState extends State<AlertsScreen> {
                       borderRadius: BorderRadius.circular(14),
                       color: Colors.blue,
                     ),
-                    child: Center(child: Text("JG", style: TextStyle(color: Colors.white, fontSize: 14),)),
+                    child: const Center(child: Text("JG", style: TextStyle(color: Colors.white, fontSize: 14),)),
                   ),
-                  Text("  Joe Goldberg ", style: TextStyle(fontWeight: FontWeight.w500, fontSize: 14),),
-                  Text("liked Your Profile", style: TextStyle( fontSize: 14, color: AppColors.grey),),
-                  Spacer(),
-                  Text("2 mins ago", style: TextStyle( fontSize: 13, color: AppColors.grey),),
+                  const Text("  Joe Goldberg ", style: TextStyle(fontWeight: FontWeight.w500, fontSize: 14),),
+                  const Text("liked Your Profile", style: TextStyle( fontSize: 14, color: AppColors.grey),),
+                  const Spacer(),
+                  const Text("2 mins ago", style: TextStyle( fontSize: 13, color: AppColors.grey),),
                 ],
               ),
-              Divider(
+              const Divider(
                 color: Colors.grey,
               ),
               Row(
@@ -120,15 +120,15 @@ class _AlertsScreenState extends State<AlertsScreen> {
                       borderRadius: BorderRadius.circular(14),
                       color: Colors.blue,
                     ),
-                    child: Center(child: Text("KO", style: TextStyle(color: Colors.white, fontSize: 14),)),
+                    child: const Center(child: Text("KO", style: TextStyle(color: Colors.white, fontSize: 14),)),
                   ),
-                  Text("  Kratos Official ", style: TextStyle(fontWeight: FontWeight.w500, fontSize: 14),),
-                  Text("Saved Your Profile", style: TextStyle( fontSize: 14, color: AppColors.grey),),
-                  Spacer(),
-                  Text("2 mins ago", style: TextStyle( fontSize: 13, color: AppColors.grey),),
+                  const Text("  Kratos Official ", style: TextStyle(fontWeight: FontWeight.w500, fontSize: 14),),
+                  const Text("Saved Your Profile", style: TextStyle( fontSize: 14, color: AppColors.grey),),
+                  const Spacer(),
+                  const Text("2 mins ago", style: TextStyle( fontSize: 13, color: AppColors.grey),),
                 ],
               ),
-              Divider(
+              const Divider(
                 color: Colors.grey,
               ),
               Row(
@@ -140,12 +140,12 @@ class _AlertsScreenState extends State<AlertsScreen> {
                       borderRadius: BorderRadius.circular(14),
                       color: Colors.blue,
                     ),
-                    child: Center(child: Text("JG", style: TextStyle(color: Colors.white, fontSize: 14),)),
+                    child: const Center(child: Text("JG", style: TextStyle(color: Colors.white, fontSize: 14),)),
                   ),
-                  Text("  Joe Goldberg ", style: TextStyle(fontWeight: FontWeight.w500, fontSize: 14),),
-                  Text("liked Your Profile", style: TextStyle( fontSize: 14, color: AppColors.grey),),
-                  Spacer(),
-                  Text("2 mins ago", style: TextStyle( fontSize: 13, color: AppColors.grey),),
+                  const Text("  Joe Goldberg ", style: TextStyle(fontWeight: FontWeight.w500, fontSize: 14),),
+                  const Text("liked Your Profile", style: TextStyle( fontSize: 14, color: AppColors.grey),),
+                  const Spacer(),
+                  const Text("2 mins ago", style: TextStyle( fontSize: 13, color: AppColors.grey),),
                 ],
               ),
 

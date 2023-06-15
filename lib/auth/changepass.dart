@@ -2,7 +2,6 @@ import 'package:ClencleR/fragments/profilescreen.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:nb_utils/nb_utils.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 Future<String?> getApiResponse() async {
   SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -42,7 +41,7 @@ class _ChangePasswordState extends State<ChangePassword> {
     if (form!.validate()) {
       form.save();
       var url = Uri.parse(
-          'http://192.168.5.9:8000/api/mitra/profile/updatepass/$mitraId');
+          'http://192.168.43.81:8000/api/mitra/profile/updatepass/$mitraId');
       var response = await http.post(url, body: {
         'password': password,
       });
@@ -77,7 +76,7 @@ class _ChangePasswordState extends State<ChangePassword> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromRGBO(121, 255, 248, 0.863),
+        backgroundColor: const Color.fromRGBO(121, 255, 248, 0.863),
         title: const Text(
           'Ubah Kata Sandi',
           style: TextStyle(
@@ -85,8 +84,8 @@ class _ChangePasswordState extends State<ChangePassword> {
               fontWeight: FontWeight.w600,
               color: Colors.black),
         ),
-        iconTheme: IconThemeData(color: Colors.black),
-        shape: RoundedRectangleBorder(
+        iconTheme: const IconThemeData(color: Colors.black),
+        shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
             bottomLeft: Radius.circular(30),
             bottomRight: Radius.circular(30),
@@ -192,7 +191,7 @@ class _ChangePasswordState extends State<ChangePassword> {
                           ),
                         ),
                         backgroundColor: MaterialStateProperty.all<Color>(
-                          Color.fromRGBO(121, 255, 248, 0.863),
+                          const Color.fromRGBO(121, 255, 248, 0.863),
                         ),
                         shape:
                             MaterialStateProperty.all<RoundedRectangleBorder>(

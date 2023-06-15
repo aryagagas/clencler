@@ -22,13 +22,13 @@ class _OnBoardScreenState extends State<OnBoardScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Center(
+                const Center(
                   child: Image(
                     image: AssetImage("assets/Images/logoo.png"),
                     height: 200,
                   ),
                 ),
-                Row(
+                const Row(
                   children: [
                     Padding(padding: EdgeInsets.only(left: 30)),
                     Icon(
@@ -36,7 +36,7 @@ class _OnBoardScreenState extends State<OnBoardScreen> {
                       color: Colors.red,
                       size: 17,
                     ),
-                    const SizedBox(width: 8),
+                    SizedBox(width: 8),
                     Text(
                       "Mitra Profesional yang Terverifikasi & Terampil",
                       style: TextStyle(fontSize: 10),
@@ -44,7 +44,7 @@ class _OnBoardScreenState extends State<OnBoardScreen> {
                   ],
                 ),
                 const SizedBox(height: 20),
-                Row(
+                const Row(
                   children: [
                     Padding(padding: EdgeInsets.only(left: 30)),
                     Icon(
@@ -52,7 +52,7 @@ class _OnBoardScreenState extends State<OnBoardScreen> {
                       color: Colors.red,
                       size: 17,
                     ),
-                    const SizedBox(width: 8),
+                    SizedBox(width: 8),
                     Text(
                       "Harga Transparan & Kompetitif",
                       style: TextStyle(fontSize: 10),
@@ -60,7 +60,7 @@ class _OnBoardScreenState extends State<OnBoardScreen> {
                   ],
                 ),
                 const SizedBox(height: 20),
-                Row(
+                const Row(
                   children: [
                     Padding(padding: EdgeInsets.only(left: 30)),
                     Icon(
@@ -68,59 +68,59 @@ class _OnBoardScreenState extends State<OnBoardScreen> {
                       color: Colors.red,
                       size: 17,
                     ),
-                    const SizedBox(width: 8),
+                    SizedBox(width: 8),
                     Text(
                       "Dilindungi Garansi & Asuransi",
                       style: TextStyle(fontSize: 10),
                     ),
                   ],
                 ),
-                SizedBox(height: 80),
+                const SizedBox(height: 80),
                 SizedBox(
                   width: 500,
                   height: 50,
                   child: ElevatedButton(
                     onPressed: () {
                       Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => SignIn()));
+                          MaterialPageRoute(builder: (context) => const SignIn()));
                     },
-                    child: Text(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: AppColors.birumuda,
+                      shape: const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(50),
+                        ),
+                      ),
+                    ),
+                    child: const Text(
                       "Login",
                       style: TextStyle(
                         color: Colors.black,
                       ),
                     ),
-                    style: ElevatedButton.styleFrom(
-                      primary: AppColors.birumuda,
-                      shape: const RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(50),
-                        ),
-                      ),
-                    ),
                   ),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 SizedBox(
                   width: 500,
                   height: 50,
                   child: ElevatedButton(
                     onPressed: () {
                       Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => SignUp()));
+                          MaterialPageRoute(builder: (context) => const SignUp()));
                     },
-                    child: Text(
-                      "Daftar Mitra",
-                      style: TextStyle(
-                        color: Colors.black,
-                      ),
-                    ),
                     style: ElevatedButton.styleFrom(
-                      primary: AppColors.birumuda,
+                      backgroundColor: AppColors.birumuda,
                       shape: const RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(
                           Radius.circular(50),
                         ),
+                      ),
+                    ),
+                    child: const Text(
+                      "Daftar Mitra",
+                      style: TextStyle(
+                        color: Colors.black,
                       ),
                     ),
                   ),

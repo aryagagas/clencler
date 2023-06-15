@@ -23,18 +23,18 @@ class _JobsScreenState extends State<JobsScreen> {
                   padding: const EdgeInsets.only(top: 18.0),
                   child: Row(
                     children: [
-                      SizedBox(
+                      const SizedBox(
                         width: 15,
                       ),
-                      Icon(Icons.search),
-                      SizedBox(
+                      const Icon(Icons.search),
+                      const SizedBox(
                         width: 15,
                       ),
-                      Text(
+                      const Text(
                         "Search Jobs..",
                         style: TextStyle(color: Colors.grey),
                       ),
-                      Spacer(),
+                      const Spacer(),
                       Container(
                         height: 50,
                         width: 50,
@@ -42,8 +42,8 @@ class _JobsScreenState extends State<JobsScreen> {
                           borderRadius: BorderRadius.circular(10),
                           color: AppColors.deeppurple,
                         ),
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
+                        child: const Padding(
+                          padding: EdgeInsets.all(8.0),
                           child: Image(
                             image: AssetImage("assets/Icons/Ic_Settings.png"),
                             height: 40,
@@ -54,10 +54,10 @@ class _JobsScreenState extends State<JobsScreen> {
                     ],
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 35,
                 ),
-                Text(
+                const Text(
                   "All Jobs",
                   style: TextStyle(
                       color: AppColors.deeppurple,

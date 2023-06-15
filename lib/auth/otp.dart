@@ -14,7 +14,7 @@ class _OTP_VerificationState extends State<OTP_Verification> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        iconTheme: IconThemeData(
+        iconTheme: const IconThemeData(
           color: Colors.black, //change your color here
         ),
         backgroundColor: Colors.transparent,
@@ -26,28 +26,28 @@ class _OTP_VerificationState extends State<OTP_Verification> {
           child: Center(
             child: Column(
               children: [
-                Text(
+                const Text(
                   "Enter Code",
                   style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
                 ),
-                SizedBox(height: 10,),
-                Text(
+                const SizedBox(height: 10,),
+                const Text(
                   "*  *  *  *  *",
                   style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.w500,
                       color: AppColors.lightgreen),
-                ),SizedBox(height: 20,),
-                Text(
+                ),const SizedBox(height: 20,),
+                const Text(
                   "We have send you a email with ",
                   style: TextStyle( color: Colors.grey),
                 ),
-                SizedBox(height: 5,),
-                Text(
+                const SizedBox(height: 5,),
+                const Text(
                   " 6 digit verification code ",
                   style: TextStyle( color: Colors.grey ),
                 ),
-                SizedBox(height: 60,),
+                const SizedBox(height: 60,),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
@@ -167,32 +167,32 @@ class _OTP_VerificationState extends State<OTP_Verification> {
                 ),
               ],
             ),
-                SizedBox(height: 20,),
+                const SizedBox(height: 20,),
                 SizedBox(
                   width: 500,
                   height: 50,
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=> DashBoard()));
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=> const DashBoard()));
                     },
-                    child: Text("Submit"),
                     style: ElevatedButton.styleFrom(
-                      primary: AppColors.deeppurple,
+                      backgroundColor: AppColors.deeppurple,
                     ),
+                    child: const Text("Submit"),
                   ),
                 ),
-                SizedBox(height: 20,),
-                Text(
+                const SizedBox(height: 20,),
+                const Text(
                   "00:59",
                   style: TextStyle( color: Colors.black),
                 ),
-                SizedBox(height: 10,),
-                Text(
+                const SizedBox(height: 10,),
+                const Text(
                   "Did not receive the code?",
                   style: TextStyle( color: Colors.black),
                 ),
-                SizedBox(height: 20,),
-                Text(
+                const SizedBox(height: 20,),
+                const Text(
                   "Re-Send",
                   style: TextStyle( color: AppColors.deeppurple, fontWeight: FontWeight.w500),
                 ),

@@ -1,8 +1,9 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:ClencleR/screen/dashboard.dart';
-import 'package:ClencleR/auth/forgot.dart';
 import 'package:ClencleR/auth/signup.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../Theme.dart';
 
@@ -17,8 +18,18 @@ class _SignInState extends State<SignIn> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
+  final _loginFormKey = GlobalKey<FormState>();
+
+  String email = '';
+  String password = '';
+
+  Future<void> saveApiResponse(String response) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setString('api_response', response);
+  }
+
   Future<void> loginUser(String email, String password) async {
-    var url = Uri.parse('http://192.168.5.9:8000/api/mitra/login');
+    var url = Uri.parse('http://192.168.43.81:8000/api/mitra/login');
 
     try {
       var response = await http.post(
@@ -33,11 +44,15 @@ class _SignInState extends State<SignIn> {
         // Tangani respon berhasil di sini
         print('Login berhasil');
         print(response.body);
+        var jsonResponse = json.decode(response.body);
+        print(jsonResponse['body']['id']);
+        jsonResponse['body']['id'];
+        await saveApiResponse(jsonResponse['body']['id'].toString());
 
         // Pindah ke halaman dashboard setelah berhasil login
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => DashBoard()),
+          MaterialPageRoute(builder: (context) => const DashBoard()),
         );
       } else {
         // Tangani respon gagal di sini
@@ -58,17 +73,22 @@ class _SignInState extends State<SignIn> {
     loginUser(email, password);
   }
 
+  void saveUserID(String id) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setString('id', id);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           "Login",
           style: TextStyle(color: Colors.black),
         ),
         backgroundColor: AppColors.birumuda,
         centerTitle: true,
-        iconTheme: IconThemeData(color: Colors.black),
+        iconTheme: const IconThemeData(color: Colors.black),
         elevation: 0,
       ),
       body: SingleChildScrollView(
@@ -78,7 +98,7 @@ class _SignInState extends State<SignIn> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Center(
+              const Center(
                 child: Image(
                   image: AssetImage("assets/Images/logoo.png"),
                   height: 200,
@@ -88,26 +108,29 @@ class _SignInState extends State<SignIn> {
                 controller: _emailController,
                 decoration: InputDecoration(
                   labelText: "Nomor HP atau Email",
-                  labelStyle: TextStyle(color: AppColors.grey),
+                  labelStyle: const TextStyle(color: AppColors.grey),
                   hintText: "Masukkan No. HP atau Email",
-                  prefixIcon: Icon(
+                  prefixIcon: const Icon(
                     Icons.email_outlined,
                     color: Colors.black,
                   ),
                   enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(width: 1, color: Colors.black),
+                    borderSide: const BorderSide(width: 1, color: Colors.black),
                     borderRadius: BorderRadius.circular(18),
                   ),
                   focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(width: 1, color: AppColors.deeppurple),
+                    borderSide:
+                        const BorderSide(width: 1, color: AppColors.deeppurple),
                     borderRadius: BorderRadius.circular(18),
                   ),
                   errorBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(width: 1, color: Colors.redAccent),
+                    borderSide:
+                        const BorderSide(width: 1, color: Colors.redAccent),
                     borderRadius: BorderRadius.circular(18),
                   ),
                   focusedErrorBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(width: 1, color: Colors.redAccent),
+                    borderSide:
+                        const BorderSide(width: 1, color: Colors.redAccent),
                     borderRadius: BorderRadius.circular(18),
                   ),
                   floatingLabelBehavior: FloatingLabelBehavior.always,
@@ -124,7 +147,7 @@ class _SignInState extends State<SignIn> {
                   return null;
                 },
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               TextFormField(
@@ -132,26 +155,29 @@ class _SignInState extends State<SignIn> {
                 obscureText: true,
                 decoration: InputDecoration(
                   labelText: "Password",
-                  labelStyle: TextStyle(color: AppColors.grey),
+                  labelStyle: const TextStyle(color: AppColors.grey),
                   hintText: "Masukkan Password",
-                  prefixIcon: Icon(
+                  prefixIcon: const Icon(
                     Icons.lock_open_outlined,
                     color: Colors.black,
                   ),
                   enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(width: 1, color: Colors.black),
+                    borderSide: const BorderSide(width: 1, color: Colors.black),
                     borderRadius: BorderRadius.circular(18),
                   ),
                   focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(width: 1, color: AppColors.deeppurple),
+                    borderSide:
+                        const BorderSide(width: 1, color: AppColors.deeppurple),
                     borderRadius: BorderRadius.circular(18),
                   ),
                   errorBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(width: 1, color: Colors.redAccent),
+                    borderSide:
+                        const BorderSide(width: 1, color: Colors.redAccent),
                     borderRadius: BorderRadius.circular(18),
                   ),
                   focusedErrorBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(width: 1, color: Colors.redAccent),
+                    borderSide:
+                        const BorderSide(width: 1, color: Colors.redAccent),
                     borderRadius: BorderRadius.circular(18),
                   ),
                   floatingLabelBehavior: FloatingLabelBehavior.always,
@@ -164,7 +190,7 @@ class _SignInState extends State<SignIn> {
                   return null;
                 },
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               // Row(
@@ -194,21 +220,21 @@ class _SignInState extends State<SignIn> {
                 height: 50,
                 child: ElevatedButton(
                   onPressed: _loginPressed,
-                  child: Text(
-                    "Login",
-                    style: TextStyle(color: Colors.black),
-                  ),
                   style: ElevatedButton.styleFrom(
-                    primary: AppColors.birumuda,
+                    backgroundColor: AppColors.birumuda,
                     shape: const RoundedRectangleBorder(
                       borderRadius: BorderRadius.all(
                         Radius.circular(50),
                       ),
                     ),
                   ),
+                  child: const Text(
+                    "Login",
+                    style: TextStyle(color: Colors.black),
+                  ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Center(
@@ -216,7 +242,7 @@ class _SignInState extends State<SignIn> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
+                    const Text(
                       "Belum Punya Akun? ",
                       style: TextStyle(color: Colors.grey),
                     ),
@@ -224,10 +250,11 @@ class _SignInState extends State<SignIn> {
                       onTap: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => SignUp()),
+                          MaterialPageRoute(
+                              builder: (context) => const SignUp()),
                         );
                       },
-                      child: Text(
+                      child: const Text(
                         " Sign Up",
                         style: TextStyle(color: AppColors.deeppurple),
                       ),
@@ -281,9 +308,9 @@ class _SignInState extends State<SignIn> {
               //     ),
               //   ],
             ],
-              ),
           ),
         ),
-      );
+      ),
+    );
   }
 }

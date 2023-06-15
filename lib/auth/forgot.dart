@@ -13,10 +13,10 @@ class _ForgotScreenState extends State<ForgotScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Lupa Password", style: TextStyle(color: Colors.black),),
+        title: const Text("Lupa Password", style: TextStyle(color: Colors.black),),
         backgroundColor: AppColors.birumuda,
         centerTitle: true,
-        iconTheme: IconThemeData(color: Colors.black),
+        iconTheme: const IconThemeData(color: Colors.black),
         elevation: 0,
       ),
       body: SingleChildScrollView(
@@ -26,7 +26,7 @@ class _ForgotScreenState extends State<ForgotScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 // Center(
@@ -38,19 +38,19 @@ class _ForgotScreenState extends State<ForgotScreen> {
                 TextFormField(
                   decoration: InputDecoration(
                     labelText: "Nomor HP atau Email",
-                    labelStyle: TextStyle(color: AppColors.grey),
+                    labelStyle: const TextStyle(color: AppColors.grey),
                     hintText: "Masukkan No. HP atau Email ",
-                    prefixIcon: Icon(
+                    prefixIcon: const Icon(
                       Icons.email_outlined,
                       color: Colors.black,
                     ),
                     enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(width: 1, color: Colors.black),
+                      borderSide: const BorderSide(width: 1, color: Colors.black),
                       borderRadius: BorderRadius.circular(18),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderSide:
-                          BorderSide(width: 1, color: AppColors.deeppurple),
+                          const BorderSide(width: 1, color: AppColors.deeppurple),
                       borderRadius: BorderRadius.circular(18),
                     ),
                     errorBorder: OutlineInputBorder(
@@ -77,7 +77,7 @@ class _ForgotScreenState extends State<ForgotScreen> {
                     return null;
                   },
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 SizedBox(
@@ -88,18 +88,18 @@ class _ForgotScreenState extends State<ForgotScreen> {
                       // Navigator.push(context,
                       //     MaterialPageRoute(builder: (context) => DashBoard()));
                     },
-                    child: Text("Kirim Link",
-                    style: TextStyle(
-                      color: Colors.black
-                    ),
-                    ),
                     style: ElevatedButton.styleFrom(
-                      primary: AppColors.birumuda,
+                      backgroundColor: AppColors.birumuda,
                       shape: const RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(
                         Radius.circular(50),
                         ),
                       ),
+                    ),
+                    child: const Text("Kirim Link",
+                    style: TextStyle(
+                      color: Colors.black
+                    ),
                     ),
                   ),
                 ),
